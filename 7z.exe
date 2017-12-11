@@ -1,0 +1,27 @@
+7z.exe
+---------------------------------------------------------------------------------------
+File
+      CreateFile	C:\Users\<User>\Desktop\malware_tech\ramnit\7zmgr.exe
+---------------------------------------------------------------------------------------
+Registry
+      RegQueryValue	HKLM\System\CurrentControlSet\Control\Terminal Server\TSUserEnabled
+---------------------------------------------------------------------------------------
+Tạo Process mới      
+      C:\Users\<User>\Desktop\malware_tech\ramnit\7zmgr.exe
+      
+---------------------------------------------------------------------------------------     
+Kết hợp với phân tích bằng IDA và ollydbg, mã độc có thể:
+    - Giả mạo phần mềm 7z với các tính năng giống như 7z thật
+    - Tạo và thực thi file C:\Users\<User>\Desktop\malware_tech\ramnit\7zmgr.exe
+
+7zmgr.exe
+---------------------------------------------------------------------------------------
+File
+      Tạo và ghi vào file	C:\Users\<User>\AppData\Local\Temp\~TMF99C.tmp
+---------------------------------------------------------------------------------------
+Registry      
+      RegQueryValue	HKLM\System\CurrentControlSet\Control\Terminal Server\TSUserEnabled	SUCCESS	Type: REG_DWORD, Length: 4, Data: 0
+      RegQueryValue	HKCR\http\shell\open\command\(Default)	SUCCESS	Type: REG_SZ, Length: 128, Data: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" -nohome
+
+      
+
