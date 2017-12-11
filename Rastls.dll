@@ -1,7 +1,12 @@
 RasTls.dll
 
-	- Chứa func có chức năng Set Registry "SOFTWARE\Microsoft\Windows\CurrentVersion\Run" để RasTls.dll được chạy khi khởi động máy
-	Đường dẫn "SOFTWARE\Microsoft\Windows\CurrentVersion\Run" bị mã hóa thành 1 đoạn ký tự và được giải mã trong quá trình chạy func
+- Set Registry "SOFTWARE\Microsoft\Windows\CurrentVersion\Run\Userinit"
+	Chạy rundll32.exe RasTls.dll khi máy được bật
+	Đường dẫn "SOFTWARE\Microsoft\Windows\CurrentVersion\Run" bị mã hóa thành 1 đoạn ký tự và được giải mã trong quá trình chạy
+	
+- Tạo process: C:\Windows\system32\msiexec.exe
+
+- Sử dụng lệnnh WriteProcessMemory để ghi đè lên process: C:\Windows\system32\msiexec.exe vừa tạo bằng 1 đoạn mã tại địa chỉ 10009B30
 	
 	
 	
