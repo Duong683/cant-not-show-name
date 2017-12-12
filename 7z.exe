@@ -28,9 +28,9 @@ Tạo Process mới
 Network
       Domain: stromoliks.com                    Address:  72.14.182.233   
 ---------------------------------------------------------------------------------------     
-      remote access to the compromised computer.
-      An cap thong tin cua may tinh: machine time, timezone, version
-      ket noi den 72.14.182.233:443
+      Có khả năng remote access máy tính, thực hiện lệnh qua commandline
+      Ăn cắp các thông tin: machine time, timezone, version,...
+      Kết nối đến 72.14.182.233:443
     
 
 
