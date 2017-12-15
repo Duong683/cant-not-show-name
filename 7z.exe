@@ -29,10 +29,11 @@ Network
       Domain: stromoliks.com                    Address:  72.14.182.233   
 ---------------------------------------------------------------------------------------     
       Ghi dự liệu lên vùng nhớ của ntdll.dll,kernel32.dll, tạo ra các file tạm tại	C:\Users\<User>\AppData\Local\Temp\ để chứa dữ liệu
-      Có khả năng anti-debugger
+      Có khả năng check-debugger
+      Check Bios version ->  AntiVM
       Ghi đè lên process C:\Program Files\Mozilla Firefox\firefox.exe
-      Có khả năng remote access máy tính và thực hiện lệnh qua commandline
-      Ăn cắp các thông tin: machine time, timezone, version,...
+      Lang nghe ket noi den, Có khả năng remote access máy tính
+      Doc các thông tin: machine time, timezone, version,...
       Kết nối đến 72.14.182.233:443
     
 
