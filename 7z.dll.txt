@@ -1,0 +1,2 @@
+7z.dll
+    su dung cpuid de phat hien may ao
