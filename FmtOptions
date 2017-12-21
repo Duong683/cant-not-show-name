@@ -1,7 +1,4 @@
 - fmtOptions.exe khi chay se load dll fmtOption.dll
-- fmtOption.dll dau tien se kiem tra ngay thang nam cua he thong, neu hop le thi moi tiep tuc
-  - sau do no se doc file fmt1.lib vao bo nho roi thuc thi no
-  - fmt1.lib thuc hien viec giai ma chinh no ....
+- fmtOption.dll load fmt1.lib
 - Sau do chuong trinh se creat process svchost.exe va msiexec.exe va tiem ma doc vao 2 file nay
-- fmtOption.exe se bi kill boi svchost
-- 2 process vua tao bi nhiem ma doc va thuc hien giao tiep voi server domain: win-fag99akvb4n:55531->7
+- 2 process vua tao bi nhiem ma doc va thuc hien giao tiep voi server domain
