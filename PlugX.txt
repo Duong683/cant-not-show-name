@@ -2,6 +2,13 @@
 - fmtOption.dll dau tien se kiem tra ngay thang nam cua he thong, neu hop le thi moi tiep tuc
   - sau do no se doc file fmt1.lib vao bo nho roi thuc thi no
   - fmt1.lib thuc hien viec giai ma chinh no ....
-- Sau do chuong trinh se creat process svchost.exe va msiexec.exe va tiem ma doc vao 2 file nay
-- fmtOption.exe se bi kill boi svchost
+- Sau do chuong trinh se creat process  msiexec.exe va exit process fmtOPtion
+- msiexec create netplwiz -> create fmtoption
+- fmt moi se tao process microsof share/quest sofware/fmtoption
+- fmt tao svchost
+- svchost tao msiexec
 - 2 process vua tao bi nhiem ma doc va thuc hien giao tiep voi server domain: win-fag99akvb4n:55531->7
+
+
+-tao file temp/uac.tmp
+- copy fmtOPtion.exe, dll va 2 file .lib vao microsoft share/quests sofware/
