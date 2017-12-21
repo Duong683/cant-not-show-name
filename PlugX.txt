@@ -12,3 +12,5 @@
 
 -tao file temp/uac.tmp
 - copy fmtOPtion.exe, dll va 2 file .lib vao microsoft share/quests sofware/
+
+https://www.circl.lu/assets/files/tr-12/tr-12-circl-plugx-analysis-v1.pdf
