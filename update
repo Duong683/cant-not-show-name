@@ -1,0 +1,45 @@
+rastlsc.exe khi chay goi toi dll RastLs.dll
+dll nay chua chuc nang tao process msiexec.exe roi ghi noi dung tu binary -> remote process msiexec.exe
+msiexec.exe -> C:\Windows\SysWOW64\dllhost.exe
+
+TCP	win-7bilq11qfli:1357	win-7bilq11qfli:0	LISTENING
+TCP	win-7bilq11qfli:49202	ip-static-188-42-254-103.server.lu:https	SYN_SENT
+TCP	192.168.1.19:49222	203.190.164.182:443	SYN_SENT
+TCP	win-7bilq11qfli:49224	203.190.164.182:http	SYN_SENT
+TCP	192.168.1.19:49225	188.42.254.103:8080	SYN_SENT
+TCP	192.168.1.19:49229	188.42.254.103:80	SYN_SENT
+
+TCP	win-7bilq11qfli:49203	203.190.164.182:https	SYN_SENT
+UDP	win-7bilq11qfli:1357	*:*	
+UDP	win-7bilq11qfli:53242	*:*	
+
+string in binary 6.1.7600.16385 (win7_rtm.090713-1255)
+
+theo thoi gian
+UDP Send	WIN-7BILQ11QFLI:49442 -> google-public-dns-a.google.com:domain	SUCCESS	Length: 33, seqnum: 0, connid: 0
+
+
+
+Destination: 188.42.254.103 (hou.phimmoi.org)
+gui di thong tin bi ma hoa bang udp ( QUIC)
+
+
+
+ket noi den Source: 204.79.197.219 su dung http de tai xuong 4 file
+/download/symbols/index2.txt HTTP/1.1
+/download/symbols/RasTls.pdb/9F646A634A6F4D08920930DEBDFB0EF91/RasTls.pdb HTTP/1.1
+/download/symbols/RasTls.pdb/9F646A634A6F4D08920930DEBDFB0EF91/RasTls.pd_ HTTP/1.1
+/download/symbols/RasTls.pdb/9F646A634A6F4D08920930DEBDFB0EF91/file.ptr HTTP/1.1
+
+msdcsc
+TCP	win-7bilq11qfli:49432	node.hootyhooty.com:8443	SYN_SENT
+TCP	192.168.1.19:49537	188.166.191.7:8443	SYN_SENT
+
+
+
+
+
+
+
+
+
