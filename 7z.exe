@@ -1,5 +1,7 @@
 7z.exe
  #banker#ramnit
+ 2 mẫu còn lại 7zFM và 7zG cũng thực hiện hành vi tương tự 7z.exe
+ 7z sử dụng cmd để thực hiện lệnh còn 2 mẫu còn lại có GUI
 ---------------------------------------------------------------------------------------
 File
       Tạo file    C:\Users\<User>\Desktop\malware_tech\ramnit\7zmgr.exe
@@ -28,13 +30,50 @@ Tạo Process mới
 Network
       Domain: stromoliks.com                    Address:  72.14.182.233   
 ---------------------------------------------------------------------------------------     
-      Ghi dự liệu lên vùng nhớ của ntdll.dll,kernel32.dll, tạo ra các file tạm tại	C:\Users\<User>\AppData\Local\Temp\ để chứa dữ liệu
-      Có khả năng check-debugger
+      Có khả năng anti-debugger
       Check Bios version ->  AntiVM
-      Ghi đè lên process C:\Program Files\Mozilla Firefox\firefox.exe
-      Lang nghe ket noi den, Có khả năng remote access máy tính
-      Doc các thông tin: machine time, timezone, version,...
-      Kết nối đến 72.14.182.233:443
+      
+      Ghi dự liệu lên vùng nhớ của ntdll.dll,kernel32.dll, tạo ra các file tạm tại	C:\Users\<User>\AppData\Local\Temp\ để chứa dữ liệu
+      
+      Ghi đè lên remote process C:\Program Files\Mozilla Firefox\firefox.exe
+      Kết nối đến 72.14.182.233:443 để download dữ liệu khác về máy
+      
+      Lắng nghe kết nối đến, Có khả năng remote access máy tính
+      Đọc các thông tin: machine time, timezone, version,...
+      
+---------------------------------------------------------------------------------------        
+7z.dll
+Tạo file
+    C:\Documents and Settings\<User>\Start Menu\Programs\Startup\maswtjoy.exe
+    C:\Program Files\etbkjgfi\maswtjoy.exe
+    System\gen_hostmgr.exe 
+    System\rundll32mgr.exe
+    C:\ProgramFiles\Internet Explorer\dmlconf.dat
+
+Sửa file
+    c:\contacts.html
+    c:\Inetpub\wwwroot\index.html
+    ProgramFiles\Common Files\designer\MSHTMPGR.DLL
+    ProgramFiles\Common Files\System\ado\MDACReadme.htm
+    ProgramFiles\Common Files\System\Ole DB\MSDAIPP.DLL
+    ProgramFiles\MSN\MSNCoreFiles\OOBE\obelog.dll
+    ProgramFiles\MSN\MSNCoreFiles\OOBE\obemetal.dll
+    ProgramFiles\MSN\MSNCoreFiles\OOBE\obepopc.dll
+    ProgramFiles\MSN\MSNIA\custdial.dll
+    ProgramFiles\MSN\MSNIA\msniasvc.exe
+    ProgramFiles\MSN\MSNIA\prestp.exe
+    ProgramFiles\MSN\MsnInstaller\iasvcstb.dll
+    ProgramFiles\MSN\MsnInstaller\msdbxi.dll
+    ProgramFiles\MSN\MsnInstaller\msninst.dll
+    ProgramFiles\MSN\MsnInstaller\msninst.exe
+    ProgramFiles\MSN\MsnInstaller\msnsign.dll
+    ProgramFiles\NetMeeting\netmeet.htm
+
+Tạo process
+    gen_hostmgr.exe	
+    rundll32mgr.exe
+
+      
     
 
 
