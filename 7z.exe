@@ -29,7 +29,10 @@ Tạo Process mới
 --------------------------------------------------------------------------------------- 
 Network
       Domain: stromoliks.com                    Address:  72.14.182.233   
----------------------------------------------------------------------------------------     
+---------------------------------------------------------------------------------------   
+      https://docs.google.com/document/d/1IFoPVkOc1msxVCqffOyMA-QLOywG4QlBp52iKXvsox8/pub
+      copy ntdll.dll and kernel32.dll to temp files and place them in the temp directory.
+      
       Có khả năng anti-debugger
       Check Bios version ->  AntiVM
       
