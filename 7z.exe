@@ -31,6 +31,8 @@ Network
       Domain: stromoliks.com                    Address:  72.14.182.233   
 ---------------------------------------------------------------------------------------   
       https://docs.google.com/document/d/1IFoPVkOc1msxVCqffOyMA-QLOywG4QlBp52iKXvsox8/pub
+      https://blog.fortinet.com/2016/10/24/information-stealing-malware-is-spread-via-word-document
+      309f->1fc00
       copy ntdll.dll and kernel32.dll to temp files and place them in the temp directory.
       
       Có khả năng anti-debugger
