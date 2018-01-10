@@ -25,7 +25,7 @@ Registry
       RegQueryValue     HKLM\SYSTEM\CONTROLSET001\CONTROL\COMPUTERNAME\ACTIVECOMPUTERNAME\COMPUTERNAME
 ---------------------------------------------------------------------------------------
 Tạo Process mới      
-      C:\Program Files\Mozilla Firefox\firefox.exe
+      
 --------------------------------------------------------------------------------------- 
 Network
       Domain: stromoliks.com                    Address:  72.14.182.233   
@@ -33,24 +33,51 @@ Network
       https://docs.google.com/document/d/1IFoPVkOc1msxVCqffOyMA-QLOywG4QlBp52iKXvsox8/pub
       https://blog.fortinet.com/2016/10/24/information-stealing-malware-is-spread-via-word-document
       309f->1fc00
-      copy 2 dll ntdll va kernal32.dll ra 2 file temp
-      su dung 2 file do de remove inline hook???
       
-      khoi dong default browner ie
-      injection code vao ie vua tao
-      code do la 1 dll co chuc nang
-      - tao mutex 
-      - tao file cqfqowuq.exe ko thanh cong
-      - 4 thread
-      - thread thu 3:
-        + lang nghe ket noi den tren sk1
-        + accept ket noi
-        + nhan packet gui den bang ham recv, ghi vao buf, packet co dang 1 chuoi so
-        + buf = 5: 
-            nhan them vai packet duoi sang chuoi so de nhan lenh, chia lam 2 lenh
-            xac nhan nhan thanh cong packet = cach gui lai buf = 5
-            - connect den 1 host bang sk2 duoc gui toi trong packet, thuc hien truyen buf tu sk1 ->sk2
-            - listen va accept tren sk3, truyen lenh tu sk3->sk1
+      khi chạy, mgr.exe sẽ copy ntdll.dll và kernel32.dll ra temp files và đặt chúng vao duong dan
+      C:\Users\<User>\AppData\Local\Temp\
+      Ten temp file co dang ~TMF99C.tmp
+      
+      Tiep theo no se dieu chinh quyen cua minh de co quyen SeDebugPrivilege bang cach goi ham AdjustTokenPrivileges
+      Tiep theo malware se thay doi dia chi cua ntdll.ZwWriteVirtualMemory de no tra ve dia chi trong vung nho cua malware
+      -> Hook Injection 
+      Sau khi hook ZwWriteVirtualMemory duoc tao thanh cong, malware se goi CreateProcess voi iexplore.exe (trinh duyet mac dinh)
+      CreateProcess trong kernel32.dll cuoi cung se goi den WriteVirtualMemory trong ntdll.dll
+      -> hook duoc kich hoat va no thuc hien qua trinh injection vao process
+      
+      malware tiem vao process iexplore.exe doan code co tac dung:
+      - tao mutex:
+        mutex duoc tinh bang thuat toan voi tham so la serial volume information
+        mutex co dang {%08X-%04X-%04X-%04X-%08X%04X}
+        
+      - tao file C:\Users\<User>\AppData\Roaming\Microsoft\windows\Start menu\Programs\Startup\cqfqowuq.exe 
+      - tao ra file dmlconf.dat
+      - tao ra nhieu thread
+       + thread 1: Ket noi den google.com va bing.com
+       + thread 2:
+         lang nghe ket noi den tai socket 1
+         accept ket noi den
+         nhan packet gui den, luu packet vao mot buffer, packet co dang 1 chuoi so (do dai tu 1 -> 5 chu so)
+         gui di packet co dang 1 chu so sau moi lan nhan duoc packet
+         nhan them vai packet duoi sang chuoi so de nhan lenh, chia lam 2 lenh
+            1. connect den 1 dia chi bang socket 2, thuc hien truyen packet tu socket 1 -> socket 2
+            2. listen va accept ket noi den tren socket 3, truyen packet tu socket 3 -> socket 1
+         tunnel?
+        + thread 3:
+         gui 1 requests GET co format co san trong binary. 
+         requests co 2 tham so GET va HOST duoc giai ma trong qua trinh thuc thi
+         gui di packet co chua cac thong tin co ban ve may tinh
+         nhan tiep cac packet chua lenh:
+           - tao thread moi co chuc nang nhu thread 2
+           - tao thread moi:
+              nhan lenh tu HOST duoi dang 1 chuoi string
+              phan giai chuoi string thanh cac lenh bang 1 thuat toan X:
+               - gui requests GET den HOST, nhan va luu noi dung vao file, chay file do
+               - hien thi mot hinh anh or cua so len man hinh chinh
+               - disable WASAntidot, thuc hien lenh shlwapi.dll.SHDeleteKeyA voi tham so la System,Hardware,Software
+                goi lenh ntdll.NtShutdownSystem(2)
+               - nhan va luu noi dung vao file, chay file do
+           
             
             
       
