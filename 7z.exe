@@ -30,10 +30,6 @@ Tạo Process mới
 Network
       Domain: stromoliks.com                    Address:  72.14.182.233   
 ---------------------------------------------------------------------------------------   
-      https://docs.google.com/document/d/1IFoPVkOc1msxVCqffOyMA-QLOywG4QlBp52iKXvsox8/pub
-      https://blog.fortinet.com/2016/10/24/information-stealing-malware-is-spread-via-word-document
-      309f->1fc00
-      
       khi chạy, mgr.exe sẽ copy ntdll.dll và kernel32.dll ra temp files và đặt chúng vao duong dan
       C:\Users\<User>\AppData\Local\Temp\
       Ten temp file co dang ~TMF99C.tmp
@@ -44,6 +40,7 @@ Network
       Sau khi hook ZwWriteVirtualMemory duoc tao thanh cong, malware se goi CreateProcess voi iexplore.exe (trinh duyet mac dinh)
       CreateProcess trong kernel32.dll cuoi cung se goi den WriteVirtualMemory trong ntdll.dll
       -> hook duoc kich hoat va no thuc hien qua trinh injection vao process
+      doan code duoc injection vao process iexplore.exe duoc luu trong binary cua 7zmgr.exe tai dia chi 309f va co do dai 1fc00
       
       malware tiem vao process iexplore.exe doan code co tac dung:
       - tao mutex:
@@ -52,6 +49,7 @@ Network
         
       - tao file C:\Users\<User>\AppData\Roaming\Microsoft\windows\Start menu\Programs\Startup\cqfqowuq.exe 
       - tao ra file dmlconf.dat
+      - chay script:
       - tao ra nhieu thread
        + thread 1: Ket noi den google.com va bing.com
        + thread 2:
@@ -59,24 +57,32 @@ Network
          accept ket noi den
          nhan packet gui den, luu packet vao mot buffer, packet co dang 1 chuoi so (do dai tu 1 -> 5 chu so)
          gui di packet co dang 1 chu so sau moi lan nhan duoc packet
-         nhan them vai packet duoi sang chuoi so de nhan lenh, chia lam 2 lenh
+         nhan them vai packet duoi sang chuoi so de nhan lenh, chia lam 2 lenh (switch-case)
             1. connect den 1 dia chi bang socket 2, thuc hien truyen packet tu socket 1 -> socket 2
             2. listen va accept ket noi den tren socket 3, truyen packet tu socket 3 -> socket 1
          tunnel?
         + thread 3:
-         gui 1 requests GET co format co san trong binary. 
+         gui 1 requests GET co format co san trong binary:
          requests co 2 tham so GET va HOST duoc giai ma trong qua trinh thuc thi
          gui di packet co chua cac thong tin co ban ve may tinh
          nhan tiep cac packet chua lenh:
            - tao thread moi co chuc nang nhu thread 2
            - tao thread moi:
               nhan lenh tu HOST duoi dang 1 chuoi string
-              phan giai chuoi string thanh cac lenh bang 1 thuat toan X:
+              phan giai chuoi string thanh cac lenh bang 1 thuat toan X va thuc hien cac lenh do:
                - gui requests GET den HOST, nhan va luu noi dung vao file, chay file do
                - hien thi mot hinh anh or cua so len man hinh chinh
                - disable WASAntidot, thuc hien lenh shlwapi.dll.SHDeleteKeyA voi tham so la System,Hardware,Software
                 goi lenh ntdll.NtShutdownSystem(2)
                - nhan va luu noi dung vao file, chay file do
+       + thread 4:
+         drop file mgr.exe vao rat nhieu file trong o C. Hang nghin file
+       + thread 5:
+         Chay 1 script co san trong binary
+         3 tham so deu giong nhau va duoc giai ma bang thuat toan trong qua trinh chay
+         thuc hien cac query lien quan de registry
+         SYSTEM/CurrentControlSet/Enum/USBSTOR
+         
            
             
             
