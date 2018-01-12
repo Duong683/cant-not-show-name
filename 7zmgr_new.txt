@@ -1,0 +1,99 @@
+7z.exe
+ #banker#ramnit
+ 2 mẫu còn lại 7zFM và 7zG cũng thực hiện hành vi tương tự 7z.exe
+ 7z sử dụng cmd để thực hiện lệnh còn 2 mẫu còn lại có GUI
+---------------------------------------------------------------------------------------
+File
+      Tạo file    C:\Users\<User>\Desktop\malware_tech\ramnit\7zmgr.exe
+---------------------------------------------------------------------------------------
+Tạo Process mới      
+      C:\Users\<User>\Desktop\malware_tech\ramnit\7zmgr.exe
+---------------------------------------------------------------------------------------   
+    -> 7z.exe giả mạo phần mềm 7z với các tính năng giống như 7z thật
+    -> Sau do tạo và thực thi file C:\Users\<User>\Desktop\malware_tech\ramnit\7zmgr.exe
+
+
+7zmgr.exe
+---------------------------------------------------------------------------------------
+File
+      Tạo và ghi vào file	C:\Users\<User>\AppData\Local\Temp\~TMF99C.tmp
+---------------------------------------------------------------------------------------
+Registry
+      RegQueryValue	HKLM\System\CurrentControlSet\Control\Terminal Server\TSUserEnabled	SUCCESS	Type: REG_DWORD, Length: 4, Data: 0
+      RegQueryValue	HKCR\http\shell\open\command\(Default)	SUCCESS	Type: REG_SZ, Length: 128, Data: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" -nohome
+      RegQueryValue     HKLM\HARDWARE\DESCRIPTION\SYSTEM\SYSTEMBIOSVERSION
+      RegQueryValue     HKLM\SYSTEM\CONTROLSET001\CONTROL\COMPUTERNAME\ACTIVECOMPUTERNAME\COMPUTERNAME
+---------------------------------------------------------------------------------------
+Tạo Process mới      
+      
+--------------------------------------------------------------------------------------- 
+Network
+      Domain: stromoliks.com                    Address:  72.14.182.233   
+---------------------------------------------------------------------------------------   
+      khi chạy, mgr.exe sẽ copy ntdll.dll và kernel32.dll ra temp files và đặt chúng vao duong dan
+      C:\Users\<User>\AppData\Local\Temp\
+      Ten temp file co dang ~TMF99C.tmp
+      
+      Tiep theo no se dieu chinh quyen cua minh de co quyen SeDebugPrivilege bang cach goi ham AdjustTokenPrivileges
+      Tiep theo malware se thay doi dia chi cua ntdll.ZwWriteVirtualMemory de no tra ve dia chi trong vung nho cua malware
+      -> Hook Injection 
+      Sau khi hook ZwWriteVirtualMemory duoc tao thanh cong, malware se goi CreateProcess voi iexplore.exe (trinh duyet mac dinh)
+      CreateProcess trong kernel32.dll cuoi cung se goi den WriteVirtualMemory trong ntdll.dll
+      -> hook duoc kich hoat va no thuc hien qua trinh injection vao process
+      doan code duoc injection vao process iexplore.exe duoc luu trong binary cua 7zmgr.exe tai dia chi 309f va co do dai 1fc00
+      
+      malware tiem vao process iexplore.exe doan code co tac dung:
+      - tao mutex:
+        
+      - tao file C:\Users\<User>\AppData\Roaming\Microsoft\windows\Start menu\Programs\Startup\cqfqowuq.exe 
+      - tao ra file dmlconf.dat
+      - chay script co trong memory
+      - tao ra nhieu thread co tac dung ket noi den host de nhan lenh
+      - drop mgr.exe vao rar nhieu file trong o C
+    
+         
+         
+           
+            
+            
+      
+---------------------------------------------------------------------------------------        
+7z.dll
+Tạo file
+    C:\Documents and Settings\<User>\Start Menu\Programs\Startup\maswtjoy.exe
+    C:\Program Files\etbkjgfi\maswtjoy.exe
+    System\gen_hostmgr.exe 
+    System\rundll32mgr.exe
+    C:\ProgramFiles\Internet Explorer\dmlconf.dat
+
+Sửa file
+    c:\contacts.html
+    c:\Inetpub\wwwroot\index.html
+    ProgramFiles\Common Files\designer\MSHTMPGR.DLL
+    ProgramFiles\Common Files\System\ado\MDACReadme.htm
+    ProgramFiles\Common Files\System\Ole DB\MSDAIPP.DLL
+    ProgramFiles\MSN\MSNCoreFiles\OOBE\obelog.dll
+    ProgramFiles\MSN\MSNCoreFiles\OOBE\obemetal.dll
+    ProgramFiles\MSN\MSNCoreFiles\OOBE\obepopc.dll
+    ProgramFiles\MSN\MSNIA\custdial.dll
+    ProgramFiles\MSN\MSNIA\msniasvc.exe
+    ProgramFiles\MSN\MSNIA\prestp.exe
+    ProgramFiles\MSN\MsnInstaller\iasvcstb.dll
+    ProgramFiles\MSN\MsnInstaller\msdbxi.dll
+    ProgramFiles\MSN\MsnInstaller\msninst.dll
+    ProgramFiles\MSN\MsnInstaller\msninst.exe
+    ProgramFiles\MSN\MsnInstaller\msnsign.dll
+    ProgramFiles\NetMeeting\netmeet.htm
+
+Tạo process
+    gen_hostmgr.exe	
+    rundll32mgr.exe
+
+      
+    
+
+
+
+      
+      
+
