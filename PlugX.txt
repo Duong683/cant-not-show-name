@@ -1,7 +1,13 @@
 - fmtOptions.exe khi chay se load dll fmtOption.dll
-- fmtOption.dll dau tien se kiem tra ngay thang nam cua he thong, neu hop le thi moi tiep tuc
-  - sau do no se doc file fmt1.lib vao bo nho roi thuc thi no
-  - fmt1.lib thuc hien viec giai ma chinh no ....
+- fmtOption.dll dau tien se kiem tra mot so thong tin tren may tinh, vd: time, day,..
+neu hop le thi moi tiep tuc
+    - sau do no se load file fmt1.lib vao bo nho roi thuc thi no
+    - fmt1.lib la 1 file da bi ma hoa, trong do co 1 doan code khong bi ma hoa de giai ma chinh no
+- fmt1.lib thuc hien viec giai ma chinh no bang ham RtlDecompressBuffer va 1 vai thuat toan khac
+- fmt1.lib co tac dung:
+    - sao chep cac file FmtOption.exe, .dll va 2 file fmt1.lib, fmt2.lib vao thu muc:
+    
+    - create process msiexec.exe -> create netplwiz
 - Sau do chuong trinh se creat process  msiexec.exe va exit process fmtOPtion
 - msiexec create netplwiz -> create fmtoption
 - fmt moi se tao process microsof share/quest sofware/fmtoption
