@@ -20,3 +20,33 @@ neu hop le thi moi tiep tuc
 - copy fmtOPtion.exe, dll va 2 file .lib vao microsoft share/quests sofware/
 
 https://www.circl.lu/assets/files/tr-12/tr-12-circl-plugx-analysis-v1.pdf
+Sau khi thread này chạy sẽ tạo ra thiều thread con. Mỗi thread con có các chức năng khác nhau.
+Các thread bao gồm:
+-	 OlProc, OlProcNotify, OlProcManager: thực hiện việc injection code vào services.exe
+-	LdrLoadShellCode: thực hiện việc giải mã code được injection vào process
+-	KeyLog, KLProc: thực hiện chức năng keylog, lưu nội dung vào file
+-	ScreenT1, ScreenT2: capture screen
+-	SiProc: thực hiện việc injection code vào process
+-	ShellT1, ShellT2: 
+-	
+Fmt2 bao gồm nhiều chức năng. Các chức năng đó được viết trong các plugin. Các plugin đó bao gồm
+-	Disk :
+o	 lấy thông tin về ổ đĩa, liệt kê các file.
+o	Tạo thư mục
+o	Tạo, đọc, ghi file
+o	Copy, xóa,move file
+o	Thực thi file
+-	Keylog: lưu log key vào thư mục %ALLUSERSPROFILE%\SxS\NvSmart.hlp
+-	Nethood: Lấy các thông tin liên quan đến shared network
+-	Netstart: lấy các thông tin về TCP, UDP table
+-	Option: shutdown, reboot, lock máy tính. Hiển thị message box
+-	Screen: capture screen
+-	Portmap
+-	Process: tạo process, liệt kê process, kill process
+-	RegEdit : thực hiện các lệnh liên quan đến key như tạo, copy, xóa, set, get, ....
+-	Service: start, control, delete service
+-	Shell: tạo cmd shell
+-	SQL: thực hiện các lệnh về SQL 
+-	Telnet: tạo telnet
+
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
